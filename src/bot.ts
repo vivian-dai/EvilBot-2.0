@@ -3,9 +3,10 @@
  * 
  * And no, I don't know what I'm doing
  */
-import {Client, Message} from "discord.js";
+
+import {Client, Collection, Message} from "discord.js";
 import * as dotenv from "dotenv";
-dotenv.config();
+import fs from "fs";
 
 export class Bot {
     /**
@@ -16,10 +17,12 @@ export class Bot {
         let client = new Client();
         client.on("ready", (): void => {
             console.log(`${client.user.tag} is online`);
-        })
-        client.on("message", (message:Message) => {
-
         });
+        let commands:Collection<string, string> = new Collection();
+        // const commandFiles:string[] = fs.readdirSync("./commands").filter(file => file.endsWith(".ts"));
+        // for (const file of commandFiles) {
+        //     const command = require(`./commands/${file}`);
+        // }
         return client.login(process.env.TOKEN);
     }
 }

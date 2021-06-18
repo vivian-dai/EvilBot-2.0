@@ -4,7 +4,8 @@
   "description": "evil bot but better and refactored in TypeScript",
   "main": "src/dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "-r dotenv/config src/dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/vivian-dai/EvilBot-2.0#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "fs": "0.0.1-security"
   }
 }

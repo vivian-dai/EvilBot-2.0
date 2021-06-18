@@ -7,6 +7,7 @@
 import {Client, Collection, Message} from "discord.js";
 import * as dotenv from "dotenv";
 import fs from "fs";
+import * as commands from "./commands";
 
 export class Bot {
     /**
@@ -19,10 +20,13 @@ export class Bot {
             console.log(`${client.user.tag} is online`);
         });
         let commands:Collection<string, string> = new Collection();
-        // const commandFiles:string[] = fs.readdirSync("./commands").filter(file => file.endsWith(".ts"));
-        // for (const file of commandFiles) {
-        //     const command = require(`./commands/${file}`);
-        // }
+
+        client.on("message", (message:Message) => {
+            console.log(commands);
+            for (const command of commands) {
+                console.log(commands);
+            }
+        })
         return client.login(process.env.TOKEN);
     }
 }

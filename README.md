@@ -9,7 +9,11 @@ I've decided recreating [Evil Bot](https://github.com/vivian-dai/EvilBot) but in
 Literally just going to stick this here because I don't trust my memory :)  
 `npm init` (I forgot to do this and struggled for 30 mins)  
 `npm install <package name>` x however many dependancies there are idk  
+`npm install tsc` to install tsc (add `-g` for globally)
 `tsc --init` to create a giant `tsconfig.json` file with possible options commented out
+`npm install tslint` for tsline (also with `-g` for globlly)
+`tslint --init` to creat `tslint.json` file  
+Hello there person (or bot lol) reading this and questioning what I'm doing, I'm sorry :(
 
 ## Todo
 - [X] make bot run (grrr `npm init`)

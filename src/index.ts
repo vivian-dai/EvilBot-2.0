@@ -1,3 +1,11 @@
-import {Bot} from "./bot";
-const bot:Bot = new Bot();
-bot.listen();
+/**
+ * Main file where everything happens
+ * 
+ * I am slightly less clueless now lol
+ */
+import {Client, Collection, Message} from "discord.js";
+const client = new Client();
+client.on("ready", (): void => {
+    console.log(`${client.user.tag} is online`);
+});
+client.login(process.env.TOKEN);

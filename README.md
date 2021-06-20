@@ -12,12 +12,13 @@ Literally just going to stick this here because I don't trust my memory :)
 `npm install tsc` to install tsc (add `-g` for globally)
 `tsc --init` to create a giant `tsconfig.json` file with possible options commented out
 `npm install tslint` for tsline (also with `-g` for globlly)
-`tslint --init` to creat `tslint.json` file  
+`tslint --init` to create `tslint.json` file  
 Hello there person (or bot lol) reading this and questioning what I'm doing, I'm sorry :(
 
 ## Todo
 - [X] make bot run (grrr `npm init`)
 - [ ] figure out how to have coolio not giant if statement command handler
+- [ ] figure out how to not import everything one at a time (how to use loop and file reading)
 - [X] ~~hmmMMMM maybe *configure the TS --> JS compilation*~~ eh it's functional as of now
 - [X] ~~hmmMMM how to use tslint 🤔~~ well really this isn't handled but that's fine
 - [X] Haha `run.bat` should be able to be less sketchy if `package.json` was configured in a good way

@@ -7,8 +7,9 @@ I've decided recreating [Evil Bot](https://github.com/vivian-dai/EvilBot) but in
 
 ## Creation
 Literally just going to stick this here because I don't trust my memory :)  
-`npm init` (I forgot to do this and struggled for 30 mins)
-`npm install <package name>` x however many dependancies there are idk
+`npm init` (I forgot to do this and struggled for 30 mins)  
+`npm install <package name>` x however many dependancies there are idk  
+`tsc --init` to create a giant `tsconfig.json` file with possible options commented out
 
 ## Todo
 - [X] make bot run (grrr `npm init`)

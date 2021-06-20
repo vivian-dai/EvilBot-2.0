@@ -13,8 +13,11 @@ interface Command {
         msg: Message
     ): Promise<void>;
 }
-export const loadCommand = (client: Client) : void => {
+export const loadCommands = (client: Client) : void => {
     client.on("message", async (msg: Message): Promise<void> => {
-        
+        if (msg.author.id === client.user.id) {
+            return;
+        }
+        msg.reply("hi");
     });
 }

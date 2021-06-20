@@ -70,5 +70,4 @@
     "forceConsistentCasingInFileNames": true        /* Disallow inconsistently-cased references to the same file. */
   },
   "include": ["src/**/*"],
-  "compileOnSave": true // typing in tsc was starting to get annoying
 }

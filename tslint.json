@@ -1,3 +1,4 @@
+// stolen with permission from https://github.com/beepboop271/yrhacks-bot/blob/main/tslint.json
 {
     "defaultSeverity": "error",
     "extends": ["tslint:all"],

@@ -19,10 +19,10 @@ export const loadCommands = async (client: Client) : Promise<void> => {
     const prefix:string = "!"; // lol bad coding
     const commands: Array<Command> = [];
     for (const fileName of await fs.readdirSync("./dist/commands").filter(file => file.endsWith(".js"))) {
-        const command = (await import(`./commands/${fileName}`)) as Command;
+        // name every single command "command" so that it grabs the object named "command" as a Command object
+        const command = (await import(`./commands/${fileName}`)).command as Command; // will read one command per file
         commands.push(command);
     }
-    console.log(commands);
     client.on("message", async (msg: Message): Promise<void> => {
         if (msg.author.id === client.user.id) {
             return;
@@ -30,11 +30,10 @@ export const loadCommands = async (client: Client) : Promise<void> => {
         const args = msg.content.slice(prefix.length).trim().split(/ +/);
 	    const command = args.shift().toLowerCase();
         for (let i = 0; i < commands.length; i++) {
-            const commandName:string = Object.getOwnPropertyNames(commands[i])[1];
-            const commandAliases: Array<String> = commands[i][commandName].aliases;
+            const commandAliases: Array<String> = commands[i].aliases;
             for (let j = 0; j < commandAliases.length; j++) {
                 if (commandAliases[j] === command) {
-                    commands[i][commandName].execute(client, msg, args);
+                    commands[i].execute(client, msg, args);
                 }
             }
         }

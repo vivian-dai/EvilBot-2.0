@@ -17,7 +17,7 @@ Hello there person (or bot lol) reading this and questioning what I'm doing, I'm
 
 ## Todo
 - [X] make bot run (grrr `npm init`)
-- [X] ~~figure out how to have coolio not giant if statement command handler~~ errr idk about "coolio" but.... it's a command handler... and it's... f u n c t i o n a l (?)
+- [X] figure out how to have coolio not giant if statement command handler
 - [X] figure out how to not import everything one at a time (how to use loop and file reading)
 - [X] ~~hmmMMMM maybe *configure the TS --> JS compilation*~~ eh it's functional as of now
 - [X] ~~hmmMMM how to use tslint 🤔~~ well really this isn't handled but that's fine

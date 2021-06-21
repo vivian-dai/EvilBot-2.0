@@ -1,1 +1,1 @@
-tsc|npm start
+tsc&npm start

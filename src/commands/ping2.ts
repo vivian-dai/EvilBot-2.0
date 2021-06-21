@@ -1,6 +1,6 @@
 import {Client, Message} from "discord.js";
 import {Command} from "../commands";
-export const com: Command = {
+export const ping2: Command = {
     name: "ping2",
     aliases: ["ping2"],
     description: "the Discord bot \"Hello world!\" equivalent.... it is what it is",

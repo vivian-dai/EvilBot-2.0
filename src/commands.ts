@@ -30,11 +30,11 @@ export const loadCommands = async (client: Client) : Promise<void> => {
         const args = msg.content.slice(prefix.length).trim().split(/ +/);
 	    const command = args.shift().toLowerCase();
         for (let i = 0; i < commands.length; i++) {
-            console.log(commands[i]);
-            const commandAliases: Array<String> = commands[i].com.aliases;
+            const commandName:string = Object.getOwnPropertyNames(commands[i])[1];
+            const commandAliases: Array<String> = commands[i][commandName].aliases;
             for (let j = 0; j < commandAliases.length; j++) {
                 if (commandAliases[j] === command) {
-                    commands[i].com.execute(client, msg, args);
+                    commands[i][commandName].execute(client, msg, args);
                 }
             }
         }

@@ -13,7 +13,7 @@ export interface Command {
         client: Client,
         msg: Message,
         args: Array<any>
-    ): void;
+    ): Promise<void>;
 }
 export const loadCommands = async (client: Client) : Promise<void> => {
     const prefix:string = "!"; // lol bad coding

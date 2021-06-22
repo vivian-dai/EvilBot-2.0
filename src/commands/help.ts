@@ -9,13 +9,22 @@ export const command: Command = {
     description: "the help command",
     execute: async (client: Client, msg: Message, args: Array<any>): Promise<void> => {
         const embed = new MessageEmbed();
-        for (const fileName of await fs.readdirSync("./dist/commands").filter(file => file.endsWith(".js"))) {
-            // name every single command "command" so that it grabs the object named "command" as a Command object
-            const command = (await import(`./${fileName}`)).command as Command; // will read one command per file
-            embed.addField(command.name, command.description);
-            console.log(command);
+        if (args.length == 0) {
+            for (const fileName of await fs.readdirSync("./dist/commands").filter(file => file.endsWith(".js"))) {
+                // name every single command "command" so that it grabs the object named "command" as a Command object
+                const command = (await import(`./${fileName}`)).command as Command; // will read one command per file
+                embed.addField(command.name, command.description);
+            }
+        } else if (args.length == 1) {
+            for (const fileName of await fs.readdirSync("./dist/commands").filter(file => file.endsWith(".js"))) {
+                // name every single command "command" so that it grabs the object named "command" as a Command object
+                const command = (await import(`./${fileName}`)).command as Command; // will read one command per file
+                if (command.name === args[0]) {
+                    embed.setTitle(command.name);
+                    embed.addField(command.description, command.aliases);
+                }
+            }
         }
-        console.log("hi");
         msg.channel.send(embed);
         return;
     }

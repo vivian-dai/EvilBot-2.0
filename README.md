@@ -23,3 +23,8 @@ Hello there person (or bot lol) reading this and questioning what I'm doing, I'm
 - [X] ~~hmmMMM how to use tslint 🤔~~ well really this isn't handled but that's fine
 - [X] Haha `run.bat` should be able to be less sketchy if `package.json` was configured in a good way
 - [ ] have fun getting EvilBot's functionalities here
+  - [ ] events
+  - [ ] commands
+    - [ ] moderation
+    - [ ] gambling
+    - [ ] fun

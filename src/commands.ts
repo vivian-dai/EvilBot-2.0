@@ -8,6 +8,7 @@ import fs from "fs";
 export interface Command {
     name: string;
     aliases: Array<string>;
+    category: string;
     description: string;
     execute(
         client: Client,

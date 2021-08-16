@@ -12,7 +12,7 @@ export const command: Command = {
     description: "the help command",
     execute: async (client: Client, msg: Message, args: Array<any>): Promise<void> => {
         const embed = new MessageEmbed();
-        embed.setColor("#FF0000");
+        embed.setColor("#0000FF");
         embed.setTitle("Help");
         embed.setDescription("use !help <command> to get more information about the command");
         if (args.length == 0) {

@@ -8,6 +8,7 @@
      aliases: ["mkrole", "makerole", "createrole", "mkRole", "makeRole", "createRole"],
      category: "moderation",
      description: "creates a role\ntakes in **<role name>** <r> <g> <b>",
+     permissions: [Permissions.FLAGS.MANAGE_ROLES],
      execute: (client: Client, msg: Message, args: Array<any>): Promise<void> => {
          let data = {};
          const embed = new MessageEmbed();
@@ -28,7 +29,13 @@
             msg.channel.send(embed);
             return;
          }
-         if (msg.member.hasPermission(Permissions.FLAGS.MANAGE_ROLES)) {
+         let hasPermission: boolean = true;
+         for (const permission of command.permissions) {
+             if (!msg.member.hasPermission(permission)) {
+                 hasPermission = false;
+             }
+         }
+         if (hasPermission) {
              msg.guild.roles.create({
                  data
              })

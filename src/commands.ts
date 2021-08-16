@@ -3,13 +3,14 @@
  * 
  * And no I have yet to understand what I'm doing
  */
-import {Client, Collection, Message} from "discord.js";
+import {Client, Collection, Permissions, Message} from "discord.js";
 import fs from "fs";
 export interface Command {
     name: string;
     aliases: Array<string>;
     category: string;
     description: string;
+    permissions: Array<number>;
     execute(
         client: Client,
         msg: Message,

@@ -14,7 +14,6 @@ export interface Event {
 }
 
 export const loadEvents  = async (client: Client): Promise<void> => {
-    const events: Map<string, Event> = new Map<string, Event>();
     for (const fileName of await fs.readdirSync("./dist/events").filter(file => file.endsWith(".js"))) {
         const event = (await import(`./events/${fileName}`)).event as Event;
         client.on(event.trigger, (args) => {

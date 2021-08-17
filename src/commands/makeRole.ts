@@ -1,11 +1,11 @@
 /**
  * Command for making new roles
  */
- import {Client, Permissions, Message, MessageEmbed, Role} from "discord.js";
+ import {Client, Permissions, Message, MessageEmbed} from "discord.js";
  import {Command} from "../commands";
  export const command: Command = {
      name: "makeRole",
-     aliases: ["mkrole", "makerole", "createrole", "mkRole", "makeRole", "createRole"],
+     aliases: ["mkrole", "makerole", "createrole"],
      category: "moderation",
      description: "creates a role\ntakes in **<role name>** <r> <g> <b>",
      permissions: [Permissions.FLAGS.MANAGE_ROLES],

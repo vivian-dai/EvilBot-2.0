@@ -5,7 +5,7 @@
  import {Command} from "../commands";
  export const command: Command = {
      name: "createChannel",
-     aliases: ["createChannel", "makeChannel", "mkChannel", "createchannel", "makechannel", "mkchannel"],
+     aliases: ["createchannel", "makechannel", "mkchannel"],
      category: "moderation",
      permissions: [Permissions.FLAGS.MANAGE_CHANNELS],
      description: "creates a new channel\ntakes in **<channel name>** **<category>**",
@@ -18,7 +18,7 @@
              }
          }
          if (hasPermission) {
-             if (args.length == 2) {
+             if (args.length === 2) {
                  msg.guild.channels.create(args[0])
                  .then(channel => {
                     let category = msg.guild.channels.cache.find(c => c.name.toLowerCase() == args[1].toLowerCase() && c.type == "category");

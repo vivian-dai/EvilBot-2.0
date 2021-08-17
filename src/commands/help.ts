@@ -1,7 +1,7 @@
 /**
  * Help command
  */
-import {Client, Permissions, Message, MessageEmbed} from "discord.js";
+import {Client, Message, MessageEmbed} from "discord.js";
 import {Command} from "../commands";
 import fs from "fs";
 

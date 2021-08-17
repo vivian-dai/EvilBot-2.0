@@ -3,7 +3,7 @@
  * 
  * And no I have yet to understand what I'm doing
  */
-import {Client, Collection, Permissions, Message} from "discord.js";
+import {Client, Message} from "discord.js";
 import fs from "fs";
 export interface Command {
     name: string;

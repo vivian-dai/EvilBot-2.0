@@ -43,6 +43,7 @@ export const command: Command = {
                 }
             }
         } else if (args.length == 1) {
+            let commandFound: boolean = false;
             for (const fileName of await fs.readdirSync("./dist/commands").filter(file => file.endsWith(".js"))) {
                 // name every single command "command" so that it grabs the object named "command" as a Command object
                 const command = (await import(`./${fileName}`)).command as Command; // will read one command per file
@@ -52,16 +53,22 @@ export const command: Command = {
                         hasPermission = false;
                     }
                 }
-                if ((command.name === args[0]) && (hasPermission)) {
+                if ((command.name.toLowerCase() === args[0]) && (hasPermission)) {
                     embed.setTitle(command.name);
                     embed.setDescription(command.description);
                     embed.addField(`category: ${command.category}`, command.aliases);
-                } else {
-                    embed.setColor("#FF0000");
-                    embed.setTitle("Error!");
-                    embed.setDescription("Command not found");
+                    commandFound = true;
                 }
             }
+            if (!commandFound) {
+                embed.setColor("#FF0000");
+                embed.setTitle("Error!");
+                embed.setDescription("Command not found");
+            }
+        } else {
+            embed.setColor("#FF0000");
+            embed.setTitle("Error!");
+            embed.setDescription("Bad number of arguments");
         }
         msg.channel.send(embed);
         return;

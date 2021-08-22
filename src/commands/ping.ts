@@ -1,7 +1,7 @@
 /**
  * Ping test command
  */
-import {Client, Permissions, Message} from "discord.js";
+import {Client, Message} from "discord.js";
 import {Command} from "../commands";
 export const command: Command = {
     name: "ping",

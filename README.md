@@ -28,3 +28,4 @@ Hello there person (or bot lol) reading this and questioning what I'm doing, I'm
     - [ ] moderation
     - [ ] gambling
     - [ ] fun
+- [ ] make a custom embed class for errors and success to reduce code redundancy 

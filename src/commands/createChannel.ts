@@ -18,10 +18,7 @@
              }
          }
          if (hasPermission) {
-             if (args.length >= 2) {
-                 if (args.length > 2) {
-                     args[1] = args.slice(1, args.length).join(" ");
-                 }
+             if (args.length == 2) {
                  msg.guild.channels.create(args[0])
                  .then(channel => {
                     let category = msg.guild.channels.cache.find(c => c.name.toLowerCase() == args[1].toLowerCase() && c.type == "category");

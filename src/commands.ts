@@ -31,11 +31,26 @@ export const loadCommands = async (client: Client) : Promise<void> => {
         }
         const args = msg.content.slice(prefix.length).trim().split(/ +/);
 	    const command = args.shift().toLowerCase();
+        const argsBack = args.join(" ").split("");
+        let foundQuote: boolean = false;
+        let newArgs = [];
+        let curArg = ""
+        for (let i = 0;i < argsBack.length;i++) {
+            if (argsBack[i] === "\"") {
+                foundQuote = !foundQuote;
+            } else if ((argsBack[i] === " ") && (!foundQuote)) {
+                newArgs.push(curArg);
+                curArg = "";
+            } else {
+                curArg += argsBack[i];
+            }
+        }
+        newArgs.push(curArg);
         for (let i = 0; i < commands.length; i++) {
             const commandAliases: Array<String> = commands[i].aliases;
             for (let j = 0; j < commandAliases.length; j++) {
                 if (commandAliases[j] === command) {
-                    commands[i].execute(client, msg, args);
+                    commands[i].execute(client, msg, newArgs);
                 }
             }
         }

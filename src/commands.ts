@@ -45,7 +45,9 @@ export const loadCommands = async (client: Client) : Promise<void> => {
                 curArg += argsBack[i];
             }
         }
-        newArgs.push(curArg);
+        if (curArg !== ""){
+            newArgs.push(curArg);
+        }
         for (let i = 0; i < commands.length; i++) {
             const commandAliases: Array<String> = commands[i].aliases;
             for (let j = 0; j < commandAliases.length; j++) {
